@@ -23,8 +23,9 @@ public class Spawner : MonoBehaviour {
 	void Start () {
 		balls = new List<GameObject>();
 		
-		if (debug)
+		if (debug) {
 			layoutDebugBalls ();
+		}
 	}
 	
 	public void layoutDebugBalls() {
