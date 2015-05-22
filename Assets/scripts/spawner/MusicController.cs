@@ -16,6 +16,7 @@ public class MusicController : MonoBehaviour {
 		for (int i = 0, c = left.Length; i < c; i++) {
 			AudioSource a = left[i].GetComponent<AudioSource>();
 			a.Play();
+			a.time = 60f;
 //			a.volume = 0f;
 			
 //			if (i == 0)
