@@ -11,14 +11,13 @@ public class MusicController : MonoBehaviour {
 
 	public void PlayAll () {
 		GameObject[] left = GameObject.FindGameObjectsWithTag(tagName);
-
-		Debug.Log(left.Length);
+//		Debug.Log(left.Length);
 		for (int i = 0, c = left.Length; i < c; i++) {
 			AudioSource a = left[i].GetComponent<AudioSource>();
 			a.Play();
 			a.time = 60f;
-//			a.volume = 0f;
-			
+
+//			a.volume = 0f;		
 //			if (i == 0)
 //				a.volume = 1;
 		}
