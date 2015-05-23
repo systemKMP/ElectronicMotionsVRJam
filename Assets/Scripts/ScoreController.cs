@@ -57,7 +57,6 @@ public class ScoreController : MonoBehaviour {
 
     public void ReportMiss()
     {
-        Debug.Log(Multiplier);
         Multiplier = 1.0f;
         UIManager.ResetMultiplier();
     }

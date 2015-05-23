@@ -13,9 +13,8 @@ public class SpecialIntervals
 
 public class SoundEditor : MonoBehaviour
 {
-
-
     public List<SpecialIntervals> Intervals;
+    public List<SpecialIntervals> Intervals2;
 
     // Use this for initialization
     void Start()
