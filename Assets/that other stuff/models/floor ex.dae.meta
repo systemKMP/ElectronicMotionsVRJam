@@ -1,39 +1,16 @@
 fileFormatVersion: 2
-guid: 03c46e1e9d974f4428216bf9740f0b55
-timeCreated: 1432406776
+guid: 5a0acd19afcc242d895fda9e0062f469
+timeCreated: 1432414336
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: Obi_ANH_CLEAN
-    100002: Obi_ANH_CLEAN_D_Ring
-    100004: Obi_ANH_CLEAN_Klinge
-    100006: Obi_ANH_CLEAN_MeshPart0
-    100008: Obi_ANH_CLEAN_MeshPart1
-    100010: Obi_ANH_CLEAN_MeshPart2
-    100012: //RootNode
-    400000: Obi_ANH_CLEAN
-    400002: Obi_ANH_CLEAN_D_Ring
-    400004: Obi_ANH_CLEAN_Klinge
-    400006: Obi_ANH_CLEAN_MeshPart0
-    400008: Obi_ANH_CLEAN_MeshPart1
-    400010: Obi_ANH_CLEAN_MeshPart2
-    400012: //RootNode
-    2300000: Obi_ANH_CLEAN_D_Ring
-    2300002: Obi_ANH_CLEAN_Klinge
-    2300004: Obi_ANH_CLEAN_MeshPart0
-    2300006: Obi_ANH_CLEAN_MeshPart1
-    2300008: Obi_ANH_CLEAN_MeshPart2
-    3300000: Obi_ANH_CLEAN_D_Ring
-    3300002: Obi_ANH_CLEAN_Klinge
-    3300004: Obi_ANH_CLEAN_MeshPart0
-    3300006: Obi_ANH_CLEAN_MeshPart1
-    3300008: Obi_ANH_CLEAN_MeshPart2
-    4300000: Obi_ANH_CLEAN_MeshPart0
-    4300002: Obi_ANH_CLEAN_MeshPart1
-    4300004: Obi_ANH_CLEAN_MeshPart2
-    4300006: Obi_ANH_CLEAN_D_Ring
-    4300008: Obi_ANH_CLEAN_Klinge
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cube
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -87,7 +64,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   additionalBone: 0
   userData: 
   assetBundleName: 
