@@ -70,8 +70,8 @@ public class WireFrameLineRenderer : MonoBehaviour
 	public void Start ()
 	{      
 //		LineMaterial = new Material("Shader \"Lines/Colored Blended\" { SubShader { Pass { Blend SrcAlpha OneMinusSrcAlpha ZWrite Off Cull Front Fog { Mode Off } } } }"); 
-		LineMaterial.hideFlags = HideFlags.HideAndDontSave;
-		LineMaterial.shader.hideFlags = HideFlags.HideAndDontSave;
+        LineMaterial.hideFlags = HideFlags.None;// HideAndDontSave;
+        LineMaterial.shader.hideFlags = HideFlags.None;//HideAndDontSave;
 		
 		MeshFilter filter = GetComponent<MeshFilter>();
 		Mesh mesh = filter.sharedMesh;

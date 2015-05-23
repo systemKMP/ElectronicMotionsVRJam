@@ -10,23 +10,25 @@ public class EffectsFacade : MonoBehaviour {
 		_ps.Emit(200);
 	}
 
-	Rigidbody _rigidBody;
+    private Vector3 angularVel;
+
+    //public Rigidbody rigidBody;
 	ParticleSystem _ps;
 
 	void Start () {
-		_rigidBody = GetComponent<Rigidbody>();
 		_ps = GetComponentInParent<ParticleSystem>();
 
 		if (randomRotation) {
-			Vector3 v = new Vector3(rotationSpeed*Random.value, rotationSpeed*Random.value, rotationSpeed*Random.value);
-			_rigidBody.angularVelocity = v;
+            angularVel = (new Vector3(rotationSpeed * Random.value, rotationSpeed * Random.value, rotationSpeed * Random.value) - Vector3.one/2.0f) * 100.0f;
+            //rigidBody.angularVelocity = v;
 		}
 	}
 	
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			Particles();
-		}
+        transform.Rotate(angularVel * Time.deltaTime);
+        //if (Input.GetKeyDown(KeyCode.Space)) {
+        //    Particles();
+        //}
 
 	}
 }

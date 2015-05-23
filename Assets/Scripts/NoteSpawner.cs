@@ -61,6 +61,8 @@ public class NoteSpawner : MonoBehaviour
         var obj = Instantiate(SpawnObject, transform.position + new Vector3(b.position.x, b.position.y, 0.0f), Quaternion.identity) as Note;
         obj.MovementSpeed = (MovementTarget.position - transform.position).normalized * MovementSpeed;
         obj.Target = b.TargetType;
+        obj.TargetTime = b.Time;
+        obj.MinPart = false;
         if (b.CombineWithNext)
         {
             if (obj.Target == ColliderType.LeftHand)
@@ -72,22 +74,39 @@ public class NoteSpawner : MonoBehaviour
                 PreviousRNote = obj;
             }
         }
-        else if (obj.Target == ColliderType.LeftHand && PreviousLNote != null){
+        else if (obj.Target == ColliderType.LeftHand && PreviousLNote != null)
+        {
             PreviousLNote.NextNote = obj;
-            PreviousLNote = null;
+            if (obj.CombineWithNext)
+            {
+                PreviousLNote = obj;
+            }
+            else
+            {
+                PreviousLNote = null;
+            }
         }
         else if (obj.Target == ColliderType.RightHand && PreviousRNote != null)
         {
             PreviousRNote.NextNote = obj;
-            PreviousRNote = null;
+            if (obj.CombineWithNext)
+            {
+                PreviousRNote = obj;
+            }
+            else
+            {
+                PreviousRNote = null;
+            }
         }
 
         Destroy(obj.gameObject, DestroyTimer);
+
 
     }
 
     private void StartMusic()
     {
+        ScoreController.Instance.CalculateTime = true;
         foreach (var track in tracks)
         {
             track.Play();
