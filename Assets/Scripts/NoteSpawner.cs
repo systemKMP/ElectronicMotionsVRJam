@@ -100,8 +100,6 @@ public class NoteSpawner : MonoBehaviour
         }
 
         Destroy(obj.gameObject, DestroyTimer);
-
-
     }
 
     private void StartMusic()
@@ -110,6 +108,7 @@ public class NoteSpawner : MonoBehaviour
         foreach (var track in tracks)
         {
             track.Play();
+            track.time = 20.0f;
         }
     }
 
