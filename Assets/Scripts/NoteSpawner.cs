@@ -5,7 +5,7 @@ public class NoteSpawner : MonoBehaviour {
 
     public float SpawnInterval;
     private float _timePassed;
-    public Note SpawnObject;
+    public GameObject SpawnObject;
     public float DestroyTimer;
 
     public float PositionOffset;
@@ -31,9 +31,10 @@ public class NoteSpawner : MonoBehaviour {
 
     private void SpawnNewNote()
     {
-        var obj = Instantiate(SpawnObject, transform.position + Vector3.zero.AddRandomVector(PositionOffset), Quaternion.identity) as Note;
-        obj.MovementSpeed = (MovementTarget.position - transform.position).normalized * MovementSpeed;
-        Destroy(obj.gameObject, DestroyTimer);
+        GameObject obj = (GameObject)Instantiate(SpawnObject, transform.position + Vector3.zero.AddRandomVector(PositionOffset), Quaternion.identity);
+		Note note = obj.GetComponent<Note>();
+        note.MovementSpeed = (MovementTarget.position - transform.position).normalized * MovementSpeed;
+        Destroy(note.gameObject, DestroyTimer);
         
     }
 
