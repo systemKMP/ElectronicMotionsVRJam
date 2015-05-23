@@ -20,6 +20,8 @@ public class ScoreController : MonoBehaviour {
         _instance = this;
     }
 
+    public ScoreUIManager UIManager;
+
     public bool CalculateTime;
 
     public int Score;
@@ -38,8 +40,14 @@ public class ScoreController : MonoBehaviour {
             level = ScoresPerHit.Count-1;
         }
 
+
         Score += (int)(ScoresPerHit[level] * Multiplier);
         Multiplier += 0.2f;
+
+        UIManager.UpdateMultiplier(Multiplier);
+        UIManager.UpdateScore(Score);
+
+
     }
 
     public void ReportMin(float offset)
