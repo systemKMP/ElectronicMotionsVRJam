@@ -4,7 +4,7 @@ using System.Collections;
 public class EffectsFacade : MonoBehaviour {
 
 	public bool randomRotation = true;
-	public float rotationSpeed = 100;
+	private float rotationSpeed = 1.2f;
 
 	public void Particles() {
 		_ps.Emit(200);
@@ -15,7 +15,7 @@ public class EffectsFacade : MonoBehaviour {
 
 	void Start () {
 		_rigidBody = GetComponent<Rigidbody>();
-		_ps = GetComponent<ParticleSystem>();
+		_ps = GetComponentInParent<ParticleSystem>();
 
 		if (randomRotation) {
 			Vector3 v = new Vector3(rotationSpeed*Random.value, rotationSpeed*Random.value, rotationSpeed*Random.value);
