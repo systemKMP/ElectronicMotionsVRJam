@@ -31,4 +31,5 @@ public class Beat{
     public float Time;
     public Vector2 position;
     public ColliderType TargetType;
+    public bool CombineWithNext;
 }

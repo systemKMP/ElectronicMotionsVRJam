@@ -22,6 +22,9 @@ public class NoteSpawner : MonoBehaviour
     private bool musicStarted = false;
     private bool gameStarted = false;
 
+    private Note PreviousLNote;
+    private Note PreviousRNote;
+
     void Start()
     {
         _timePassed = 0.0f;
@@ -58,6 +61,27 @@ public class NoteSpawner : MonoBehaviour
         var obj = Instantiate(SpawnObject, transform.position + new Vector3(b.position.x, b.position.y, 0.0f), Quaternion.identity) as Note;
         obj.MovementSpeed = (MovementTarget.position - transform.position).normalized * MovementSpeed;
         obj.Target = b.TargetType;
+        if (b.CombineWithNext)
+        {
+            if (obj.Target == ColliderType.LeftHand)
+            {
+                PreviousLNote = obj;
+            }
+            else if (obj.Target == ColliderType.RightHand)
+            {
+                PreviousRNote = obj;
+            }
+        }
+        else if (obj.Target == ColliderType.LeftHand && PreviousLNote != null){
+            PreviousLNote.NextNote = obj;
+            PreviousLNote = null;
+        }
+        else if (obj.Target == ColliderType.RightHand && PreviousRNote != null)
+        {
+            PreviousRNote.NextNote = obj;
+            PreviousRNote = null;
+        }
+
         Destroy(obj.gameObject, DestroyTimer);
 
     }
