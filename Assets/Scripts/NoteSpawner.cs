@@ -7,7 +7,7 @@ public class NoteSpawner : MonoBehaviour
 
     public float SpawnInterval;
     private float _timePassed;
-    public GameObject SpawnObject;
+    public Note SpawnObject;
     public float DestroyTimer;
 
     public float PositionOffset;
