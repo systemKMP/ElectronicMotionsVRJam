@@ -49,6 +49,8 @@ public class Spawner : MonoBehaviour {
 			//			go.transform.parent = this.gameObject.transform;
 			//			float offsetY = offset + levelDataPoints[i];
 			float offsetY = offset + levelDataPoints[i];
+
+            go.transform.position = go.transform.position.AddRandomVector(1.5f);
 			
 			go.transform.position += hitPoint.transform.position + (hitPoint.transform.up * offsetY);
 			go.transform.rotation = hitPoint.transform.rotation;
@@ -151,18 +153,18 @@ public class Spawner : MonoBehaviour {
 				}
 			}
 			
-			if (score != -1f) {
-				//				Debug.Log("OnScore");
-				SendMessage("OnScore",score);
-			}
-			if (objectThatWasHit != null) {
-				//				Debug.Log("OnHit");
-				SendMessage("OnHit", objectThatWasHit);
-			}
-			if (smallestDist != -1f) {
-				//				Debug.Log("OnClosestObject");
-				SendMessage("OnClosestObject", smallestDist);
-			}
+            //if (score != -1f) {
+            //    //				Debug.Log("OnScore");
+            //    SendMessage("OnScore",score);
+            //}
+            //if (objectThatWasHit != null) {
+            //    //				Debug.Log("OnHit");
+            //    SendMessage("OnHit", objectThatWasHit);
+            //}
+            //if (smallestDist != -1f) {
+            //    //				Debug.Log("OnClosestObject");
+            //    SendMessage("OnClosestObject", smallestDist);
+            //}
 		}
 		
 		// deal damage if ball came out of hit target
@@ -173,7 +175,7 @@ public class Spawner : MonoBehaviour {
 			if (isOutOfHitZone) {
 				if (subject.GetComponent<BallState>().inHitZone) {
 					subject.GetComponent<BallState>().inHitZone = false;
-					SendMessage("OnMissed", subject);
+					//SendMessage("OnMissed", subject);
 				}
 				if (subject.GetComponent<BallState>().hasPlayedFartSount && !subject.GetComponent<BallState>().hasDealtDamage) {
 					subject.GetComponent<BallState>().hasDealtDamage = true;				
