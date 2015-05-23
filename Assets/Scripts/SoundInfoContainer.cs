@@ -30,5 +30,5 @@ public class SoundInfoContainer : ScriptableObject {
 public class Beat{
     public float Time;
     public Vector2 position;
-    public bool HoldToUse;
+    public ColliderType TargetType;
 }
