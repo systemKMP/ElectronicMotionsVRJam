@@ -51,6 +51,7 @@ public class CollisionDetector : MonoBehaviour
         if (note.Target == ColType)
         {
             note.Hit();
+            SoundPlayer.Instance.PlayRandomClip();
             SpawnEffect(other.transform.position);
         }
 

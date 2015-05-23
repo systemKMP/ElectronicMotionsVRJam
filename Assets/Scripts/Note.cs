@@ -46,6 +46,7 @@ public class Note : MonoBehaviour
     {
         if (!MinPart)
         {
+            SoundPlayer.Instance.PlayRandomClip();
             ScoreController.Instance.ReportScore(TargetTime);
         }
         else
