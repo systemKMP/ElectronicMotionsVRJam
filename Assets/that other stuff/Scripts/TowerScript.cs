@@ -3,9 +3,8 @@ using System.Collections;
 
 public class TowerScript : MonoBehaviour {
 
-	public bool isExpanded = false;
 	public GameObject tower = null;	
-	public KeyCode keyActivate = KeyCode.Alpha1;
+	public Vector3 MovementSpeed;
 	
 	void Start () {
 		var tower = GetComponentInChildren<Transform>();
@@ -15,20 +14,10 @@ public class TowerScript : MonoBehaviour {
 		else {
 			this.tower = tower.gameObject;
 		}
-
-		GetComponent<Animator>().Play("idle");
-
 	}
 	
 	void Update () {
-		if (Input.GetKeyDown(keyActivate)) {
-			Expand();	
-		}
+		transform.position += MovementSpeed * Time.deltaTime;
 	}
 
-	public void Expand() {
-//		GetComponent<Animator>().SetTrigger("Start");		
-
-		GetComponent<Animator>().Play("scale up");
-	}
 }

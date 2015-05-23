@@ -32,9 +32,12 @@ public class NoteSpawner : MonoBehaviour {
     private void SpawnNewNote()
     {
         GameObject obj = (GameObject)Instantiate(SpawnObject, transform.position + Vector3.zero.AddRandomVector(PositionOffset), Quaternion.identity);
+
 		Note note = obj.GetComponent<Note>();
-        note.MovementSpeed = (MovementTarget.position - transform.position).normalized * MovementSpeed;
-        Destroy(note.gameObject, DestroyTimer);
+		if (note != null) {
+	        note.MovementSpeed = (MovementTarget.position - transform.position).normalized * MovementSpeed;
+	        Destroy(note.gameObject, DestroyTimer);
+		}
         
     }
 
