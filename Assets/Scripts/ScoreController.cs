@@ -43,7 +43,6 @@ public class ScoreController : MonoBehaviour {
 
         Score += (int)(ScoresPerHit[level] * Multiplier);
         Multiplier += 0.2f;
-
         UIManager.UpdateMultiplier(Multiplier);
         UIManager.UpdateScore(Score);
 
@@ -53,11 +52,14 @@ public class ScoreController : MonoBehaviour {
     public void ReportMin(float offset)
     {
         Score += (int)(ScorePerHitMin * Multiplier);
+        UIManager.UpdateScore(Score);
     }
 
     public void ReportMiss()
     {
+        Debug.Log(Multiplier);
         Multiplier = 1.0f;
+        UIManager.ResetMultiplier();
     }
 
     void Update()

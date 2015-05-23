@@ -38,6 +38,7 @@ public class Note : MonoBehaviour
         if (ScoreController.Instance.TimePassed - TargetTime > 0.32f)
         {
             ScoreController.Instance.ReportMiss();
+            Destroy(this.gameObject);
 
         }
     }
@@ -52,11 +53,7 @@ public class Note : MonoBehaviour
         else
         {
             ScoreController.Instance.ReportMin(TargetTime);
-
         }
-        if (!CombineWithNext)
-        {
-            Destroy(this.gameObject);
-        }
+        Destroy(this.gameObject);
     }
 }

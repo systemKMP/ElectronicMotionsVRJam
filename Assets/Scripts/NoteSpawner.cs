@@ -108,7 +108,6 @@ public class NoteSpawner : MonoBehaviour
         foreach (var track in tracks)
         {
             track.Play();
-            track.time = 20.0f;
         }
     }
 
