@@ -12,6 +12,8 @@ public class NoteSpawner : MonoBehaviour {
     public Transform MovementTarget;
     public float MovementSpeed;
 
+    public float SoundDelay;
+
     void Start()
     {
         _timePassed = 0.0f;
