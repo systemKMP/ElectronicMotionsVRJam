@@ -23,6 +23,14 @@ public class SoundEditor : MonoBehaviour {
             beat.position = pos;
             left = !left;
         }
+
+        
+        var beats = SoundInfoContainer.Instance.Beats;
+
+        for (int i = 0; i < beats.Count; i++)
+        {
+
+        }
 	}
 
 }
