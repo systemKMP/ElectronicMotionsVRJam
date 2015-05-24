@@ -28,14 +28,14 @@ public class SoundEditor : MonoBehaviour
             if (left)
             {
                 beat.TargetType = ColliderType.LeftHand;
-                pos.x = (UnityEngine.Random.value * -0.5f - 0.1f) * (dist + 0.5f);
+                pos.x = (UnityEngine.Random.value * -0.5f - 0.1f) * (dist / 2.0f + 0.5f);
             }
             else
             {
                 beat.TargetType = ColliderType.RightHand;
-                pos.x = (UnityEngine.Random.value * 0.5f + 0.1f) * (dist + 0.5f);
+                pos.x = (UnityEngine.Random.value * 0.5f + 0.1f) * (dist / 2.0f + 0.5f);
             }
-            pos.y = UnityEngine.Random.Range(-0.5f, 0.7f) * (dist + 0.5f);
+            pos.y = UnityEngine.Random.Range(-0.5f, 0.7f) * (dist/2.0f + 0.5f);
             beat.position = pos;
             left = !left;
             index++;
