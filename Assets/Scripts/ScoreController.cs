@@ -54,8 +54,6 @@ public class ScoreController : MonoBehaviour {
 
         TimeSinceLastHit = 0.0f;
 
-        UIManager.ScaleWorldMin();
-
 
 
 
@@ -73,7 +71,6 @@ public class ScoreController : MonoBehaviour {
         TimeSinceLastHit = 0.0f;
         Score += (int)(ScoresPerCombo * (1.0f + MultiplierCount / 5.0f));
         UIManager.UpdateScore(Score);
-        UIManager.ScaleWorldBig();
 
     }
 
@@ -85,6 +82,10 @@ public class ScoreController : MonoBehaviour {
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Application.LoadLevel(0);
+        }
 
         if (CalculateTime)
         {
