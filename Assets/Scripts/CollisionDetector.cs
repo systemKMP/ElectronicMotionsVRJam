@@ -12,6 +12,8 @@ public class CollisionDetector : MonoBehaviour
     bool TriggerPressedLastFrame = false;
     private int ControllerIndex;
 
+    public TrailRenderer Trail;
+
     void Awake()
     {
         ControllerIndex = 0;
@@ -69,6 +71,11 @@ public class CollisionDetector : MonoBehaviour
             EffectFactory.Instance.SpawnEffect(EffectType.Simple, pos, 2.0f);
            
         }
+    }
+
+    void Update()
+    {
+        //Trail.
     }
 
 }

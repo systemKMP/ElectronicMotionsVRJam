@@ -6,6 +6,8 @@ public class SoundPlayer : MonoBehaviour {
 
     public List<AudioClip> sounds;
     public AudioSource Source;
+    public AudioSource Source2;
+    private bool usedFirst = false;
 
     private static SoundPlayer _instance;
 
@@ -24,7 +26,15 @@ public class SoundPlayer : MonoBehaviour {
 
     public void PlayRandomClip()
     {
-        Source.PlayOneShot(sounds[Random.Range(0, sounds.Count)]);
+        if (usedFirst)
+        {
+            Source.PlayOneShot(sounds[Random.Range(0, sounds.Count)]);
+        }
+        else
+        {
+            Source2.PlayOneShot(sounds[Random.Range(0, sounds.Count)]);
+        }
+        usedFirst = !usedFirst;
     }
 
 }
