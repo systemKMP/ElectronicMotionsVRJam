@@ -50,11 +50,14 @@ public class CollisionDetector : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         var note = other.GetComponent<Note>();
-        if (note.Target == ColType)
+        //if (note.Target == ColType)
+        //{
+        if (note != null)
         {
             note.Hit();
 
             SpawnEffect(other.transform.position);
+            //}
         }
 
     }

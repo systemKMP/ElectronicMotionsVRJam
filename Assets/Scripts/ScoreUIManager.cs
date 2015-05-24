@@ -10,10 +10,6 @@ public class ScoreUIManager : MonoBehaviour {
     public float ScoreScale;
     public float MultiplierScale;
 
-    public GameObject ToScaleInWorld;
-
-    public float WorldObjectScale;
-
     public GameObject[] PerformanceTexts;
 
     public void UpdateScore(int score)
@@ -22,16 +18,6 @@ public class ScoreUIManager : MonoBehaviour {
         ScoreText.text = "SCORE: " + score.ToString();
     }
 
-    public void ScaleWorldMin()
-    {
-        WorldObjectScale = 1.02f;
-    }
-
-    public void ScaleWorldBig()
-    {
-        WorldObjectScale = 1.2f;
-
-    }
 
     public void ShowMessage(int level)
     {
@@ -55,11 +41,9 @@ public class ScoreUIManager : MonoBehaviour {
     {
         MultiplierText.transform.localScale = MultiplierScale * Vector3.one;
         ScoreText.transform.localScale = ScoreScale * Vector3.one;
-        ToScaleInWorld.transform.localScale = WorldObjectScale * Vector3.one;
 
         MultiplierScale = Mathf.MoveTowards(MultiplierScale, 1.0f, Time.deltaTime);
         ScoreScale = Mathf.MoveTowards(ScoreScale, 1.0f, Time.deltaTime);
-        WorldObjectScale = Mathf.MoveTowards(WorldObjectScale, 1.0f, Time.deltaTime);
 
     }
 
