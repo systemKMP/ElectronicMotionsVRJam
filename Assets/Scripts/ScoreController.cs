@@ -18,9 +18,7 @@ public class ScoreController : MonoBehaviour {
     void Awake()
     {
         _instance = this;
-        QualitySettings.vSyncCount = 1;
-        Application.targetFrameRate = -1;
-        
+        //OVRManager.display.
     }
 
     public ParticleSystem rHandP;
@@ -85,8 +83,9 @@ public class ScoreController : MonoBehaviour {
 
     void Update()
     {
-        QualitySettings.vSyncCount = 1;
-        Application.targetFrameRate = -1;
+
+
+        
         if (Input.GetKeyDown(KeyCode.R))
         {
             Application.LoadLevel(0);

@@ -648,8 +648,8 @@ public class OVRManager : MonoBehaviour
 		// Except for D3D9, SDK rendering forces vsync unless you pass ovrHmdCap_NoVSync to Hmd.SetEnabledCaps().
 		if (timeWarp)
 		{
-			bool useUnityVSync = SystemInfo.graphicsDeviceVersion.Contains("Direct3D 9");
-			QualitySettings.vSyncCount = useUnityVSync ? 1 : 0;
+            //bool useUnityVSync = SystemInfo.graphicsDeviceVersion.Contains("Direct3D 9");
+            //QualitySettings.vSyncCount = useUnityVSync ? 1 : 0;
 		}
 #endif
 

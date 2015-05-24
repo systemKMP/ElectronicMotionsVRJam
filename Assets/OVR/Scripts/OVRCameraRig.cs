@@ -264,7 +264,6 @@ public class OVRCameraRig : MonoBehaviour
 		anchor.localScale = Vector3.one;
 		anchor.localPosition = Vector3.zero;
 		anchor.localRotation = Quaternion.identity;
-
 		return anchor;
 	}
 
