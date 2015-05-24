@@ -75,7 +75,7 @@ public class CollisionDetector : MonoBehaviour
 
     void Update()
     {
-        //Trail.
+        
     }
 
 }
