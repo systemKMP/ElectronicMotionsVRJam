@@ -24,7 +24,7 @@ public class SoundPlayer : MonoBehaviour {
         _instance = this;
     }
 
-    public void PlayRandomClip()
+    public void PlayRandomClip(float height = 0.0f)
     {
         if (usedFirst)
         {

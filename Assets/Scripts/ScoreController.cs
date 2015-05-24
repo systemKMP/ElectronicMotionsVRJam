@@ -20,14 +20,19 @@ public class ScoreController : MonoBehaviour {
         _instance = this;
     }
 
+    public ParticleSystem rHandP;
+    public ParticleSystem lHandP;
+
+    public float TimeSinceLastHit;
+
     public ScoreUIManager UIManager;
 
     public bool CalculateTime;
 
     public int Score;
-    public float Multiplier;
+    public int MultiplierCount;
     public int ScorePerHitMin;
-
+    public int ScoresPerCombo;
     public List<int> ScoresPerHit;
     public float MissTime;
 
@@ -41,31 +46,61 @@ public class ScoreController : MonoBehaviour {
         }
 
 
-        Score += (int)(ScoresPerHit[level] * Multiplier);
-        Multiplier += 0.2f;
-        UIManager.UpdateMultiplier(Multiplier);
+        Score += (int)(ScoresPerHit[level] * (1.0f + MultiplierCount/5.0f));
+        MultiplierCount++;
+        UIManager.UpdateMultiplier(MultiplierCount);
         UIManager.UpdateScore(Score);
+        UIManager.ShowMessage(level);
+
+        TimeSinceLastHit = 0.0f;
+
 
 
     }
 
     public void ReportMin(float offset)
     {
-        Score += (int)(ScorePerHitMin * Multiplier);
+        TimeSinceLastHit = 0.0f;
+        Score += (int)(ScorePerHitMin * (1.0f + MultiplierCount/5.0f));
+        UIManager.UpdateScore(Score);
+    }
+
+    public void ReportCombo()
+    {
+        TimeSinceLastHit = 0.0f;
+        Score += (int)(ScoresPerCombo * (1.0f + MultiplierCount / 5.0f));
         UIManager.UpdateScore(Score);
     }
 
     public void ReportMiss()
     {
-        Multiplier = 1.0f;
+        MultiplierCount = 0;
         UIManager.ResetMultiplier();
     }
 
     void Update()
     {
+
         if (CalculateTime)
         {
             TimePassed += Time.deltaTime;
+            TimeSinceLastHit += Time.deltaTime;        
+        }
+
+        if (TimeSinceLastHit > 5.0f)
+        {
+            float em = TimeSinceLastHit  * 40.0f;
+            lHandP.emissionRate = rHandP.emissionRate = TimeSinceLastHit > 1000 ? 1000 : TimeSinceLastHit;
+
+            Color c = lHandP.startColor;
+            c.a = TimeSinceLastHit / 30.0f;
+            rHandP.startColor = lHandP.startColor = c;
+        } else {
+            lHandP.emissionRate = rHandP.emissionRate = 0;
+
+            Color c = lHandP.startColor;
+            c.a = 0.0f;
+            rHandP.startColor = lHandP.startColor = c;
         }
     }
 }
