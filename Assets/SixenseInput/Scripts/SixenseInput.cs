@@ -361,18 +361,18 @@ public class SixenseInput : MonoBehaviour
 	/// <summary>
 	/// Updates the controller manager GUI.
 	/// </summary>
-	void OnGUI()
-	{
-		if ( ControllerManagerEnabled && ( m_ControllerManagerState != ControllerManagerState.NONE ) )
-		{
-			uint boxWidth = 300;
-			uint boxHeight = 24;
-			string boxText = ( m_ControllerManagerState == ControllerManagerState.BIND_CONTROLLER_ONE ) ?
-							 "Point left controller at base and pull trigger." :
-							 "Point right controller at base and pull trigger.";
-			GUI.Box( new Rect( ( ( Screen.width / 2 ) - ( boxWidth / 2 ) ), ( ( Screen.height / 2 ) - ( boxHeight / 2 ) ), boxWidth, boxHeight ), boxText );
-		}
-	}
+    //void OnGUI()
+    //{
+    //    if ( ControllerManagerEnabled && ( m_ControllerManagerState != ControllerManagerState.NONE ) )
+    //    {
+    //        uint boxWidth = 300;
+    //        uint boxHeight = 24;
+    //        string boxText = ( m_ControllerManagerState == ControllerManagerState.BIND_CONTROLLER_ONE ) ?
+    //                         "Point left controller at base and pull trigger." :
+    //                         "Point right controller at base and pull trigger.";
+    //        GUI.Box( new Rect( ( ( Screen.width / 2 ) - ( boxWidth / 2 ) ), ( ( Screen.height / 2 ) - ( boxHeight / 2 ) ), boxWidth, boxHeight ), boxText );
+    //    }
+    //}
 	
 	/// <summary>
 	/// Exit sixense when the application quits.
